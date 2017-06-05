@@ -38,9 +38,17 @@ class PokedexViewController: UIViewController,UITableViewDataSource,UITableViewD
         else{
             pokemon = pokemonsNoAtrapados[indexPath.row]
         }
-        let cell = UITableViewCell()
-        cell.textLabel?.text = pokemon.nombre
+        let cell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"celda")
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "\(String(pokemon.cantidad)) \(pokemon.nombre!)"
+        }
+        else{
+            cell.textLabel?.text = "\(pokemon.nombre!)"
+        }
+
+//        cell.textLabel?.text = "\(String(pokemon.cantidad)) \(pokemon.nombre!)"
         cell.imageView?.image = UIImage(named: pokemon.imagenNombre!)
+        cell.detailTextLabel?.text = String(pokemon.cantidad)
 //        print(cell)
         return cell
     }
@@ -73,6 +81,15 @@ class PokedexViewController: UIViewController,UITableViewDataSource,UITableViewD
     
     @IBAction func mapTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return true
+        }
+        else{
+            return false
+        }
     }
 
     

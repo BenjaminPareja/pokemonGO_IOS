@@ -118,6 +118,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 let pokemon = (view.annotation as! PokePin).pokemon
                 if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord)){
                     print("Puede atrapar al pokemon")
+                    if pokemon.cantidad >= 1{
+                        let alertaVC = UIAlertController(title: "¿Deseas atraparlo de todas formas?", message: "Ya atrapaste antes a un \(pokemon.nombre!) 🤗", preferredStyle: .alert)
+                        let okAccion = UIAlertAction(title: "SI! Atrapalo", style: .default, handler:nil)
+                        let noAccion = UIAlertAction(title: "No Gracias", style: .default, handler:nil)
+                        alertaVC.addAction(okAccion)
+                        alertaVC.addAction(noAccion)
+                        self.present(alertaVC, animated: true, completion: nil)
+
+                    }
+                    print((pokemon.cantidad), " cantidad")
                     pokemon.atrapado = true
                     pokemon.cantidad += 1
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
