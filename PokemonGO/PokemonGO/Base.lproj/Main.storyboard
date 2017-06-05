@@ -35,12 +35,26 @@
                                     <action selector="centrarTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0eL-wb-L1t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-aM-Any">
+                                <rect key="frame" x="182" y="666" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="LiC-vl-znf"/>
+                                </constraints>
+                                <state key="normal" image="pokeball"/>
+                                <connections>
+                                    <action selector="centrarTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfJ-oz-Axo"/>
+                                    <segue destination="DBB-yb-yaC" kind="presentation" id="6cx-Gw-Pxk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xal-I1-iYF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Cu9-0S-6jf"/>
                             <constraint firstItem="xal-I1-iYF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="DW6-ip-Eyf"/>
                             <constraint firstAttribute="trailing" secondItem="x8y-FY-Cvz" secondAttribute="trailing" id="HMp-5k-jxb"/>
+                            <constraint firstItem="NzO-aM-Any" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="646" id="kG2-i2-dET"/>
+                            <constraint firstAttribute="bottom" secondItem="NzO-aM-Any" secondAttribute="bottom" constant="20" symbolic="YES" id="nkb-38-d1V"/>
+                            <constraint firstItem="NzO-aM-Any" firstAttribute="centerX" secondItem="x8y-FY-Cvz" secondAttribute="centerX" id="qcs-zh-O3z"/>
                             <constraint firstItem="x8y-FY-Cvz" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="rzE-dz-La9"/>
                             <constraint firstItem="x8y-FY-Cvz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sVx-9V-Qxp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xal-I1-iYF" secondAttribute="bottom" constant="658" id="v6g-mx-qzp"/>
@@ -55,8 +69,57 @@
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="136.95652173913044"/>
         </scene>
+        <!--Pokedex View Controller-->
+        <scene sceneID="tpr-he-Otc">
+            <objects>
+                <viewController id="DBB-yb-yaC" customClass="PokedexViewController" customModule="PokemonGO" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rwi-NF-l71"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ynh-nB-xuq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b1x-Hw-raM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pul-1b-oWc">
+                                <rect key="frame" x="0.0" y="28" width="414" height="708"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9m-Lu-R1a">
+                                <rect key="frame" x="182" y="666" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="HWa-Yo-BXE"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <action selector="centrarTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h8I-v2-ewS"/>
+                                    <action selector="mapTapped:" destination="DBB-yb-yaC" eventType="touchUpInside" id="ez9-s3-eJj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pul-1b-oWc" firstAttribute="top" secondItem="rwi-NF-l71" secondAttribute="bottom" constant="8" symbolic="YES" id="8fa-dd-ck9"/>
+                            <constraint firstItem="pul-1b-oWc" firstAttribute="bottom" secondItem="Ynh-nB-xuq" secondAttribute="top" id="Va9-wN-Khk"/>
+                            <constraint firstAttribute="bottom" secondItem="Z9m-Lu-R1a" secondAttribute="bottom" constant="20" symbolic="YES" id="eT1-Bh-m1T"/>
+                            <constraint firstItem="Z9m-Lu-R1a" firstAttribute="centerX" secondItem="b1x-Hw-raM" secondAttribute="centerX" id="fc8-Eq-Z5e"/>
+                            <constraint firstItem="pul-1b-oWc" firstAttribute="leading" secondItem="b1x-Hw-raM" secondAttribute="leading" id="h9Y-zk-1CU"/>
+                            <constraint firstItem="pul-1b-oWc" firstAttribute="centerX" secondItem="Z9m-Lu-R1a" secondAttribute="centerX" id="igW-53-aTy"/>
+                            <constraint firstItem="Z9m-Lu-R1a" firstAttribute="top" secondItem="rwi-NF-l71" secondAttribute="bottom" constant="646" id="rMg-w6-DpH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pul-1b-oWc" id="Mjk-Cb-HyT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bV-Ew-CKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876.81159420289862" y="136.95652173913044"/>
+        </scene>
     </scenes>
     <resources>
         <image name="compass" width="512" height="512"/>
+        <image name="map" width="512" height="512"/>
+        <image name="pokeball" width="512" height="512"/>
     </resources>
 </document>
