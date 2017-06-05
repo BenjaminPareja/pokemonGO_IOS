@@ -41,6 +41,7 @@ class PokedexViewController: UIViewController,UITableViewDataSource,UITableViewD
         let cell = UITableViewCell()
         cell.textLabel?.text = pokemon.nombre
         cell.imageView?.image = UIImage(named: pokemon.imagenNombre!)
+//        print(cell)
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,6 +55,20 @@ class PokedexViewController: UIViewController,UITableViewDataSource,UITableViewD
         else{
             return "No atrapados"
         }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0{
+            if editingStyle == .delete{
+                let pokemon = pokemonsAtrapados[indexPath.row]
+                pokemon.atrapado = false
+                tableView.reloadData()
+                dismiss(animated: true, completion: nil)
+            }
+        }
+        
+
     }
     
     @IBAction func mapTapped(_ sender: UIButton) {
